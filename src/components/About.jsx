@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiBook, FiTarget } from 'react-icons/fi';
+import { FiTarget } from 'react-icons/fi';
 
 const keywords = {
   institute: 'Synergy Institute of Engineering and Technology',

@@ -1,25 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiMapPin, FiSend } from 'react-icons/fi';
+import Toasts from './Toast';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState({ submitting: false, success: null, error: null });
+  const [status, setStatus] = useState({ submitting: false });
+  const [toasts, setToasts] = useState([]);
+  const [errors, setErrors] = useState({ name: '', email: '', message: '' });
+  const formRef = useRef(null);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus({ submitting: true, success: null, error: null });
-    try {
-      // Placeholder: replace with EmailJS or backend call
-      await new Promise((res) => setTimeout(res, 900));
-      setStatus({ submitting: false, success: 'Message sent — I will reply shortly.', error: null });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const newErrors = { name: '', email: '', message: '' };
+    if (!form.name.trim()) newErrors.name = 'Please enter your name.';
+    if (!form.email.trim()) newErrors.email = 'Please enter your email.';
+    else if (!emailRegex.test(form.email)) newErrors.email = 'Please enter a valid email address.';
+    if (!form.message.trim()) newErrors.message = 'Please enter a message.';
+
+    setErrors(newErrors);
+    const hasError = Object.values(newErrors).some((v) => v !== '');
+    if (hasError) return;
+
+    // Simulate sending locally
+    setStatus({ submitting: true });
+    setTimeout(() => {
+      setStatus({ submitting: false });
       setForm({ name: '', email: '', message: '' });
-    } catch (err) {
-      setStatus({ submitting: false, success: null, error: 'Something went wrong. Please try again.' });
-    }
+      setErrors({ name: '', email: '', message: '' });
+      pushToast('success', 'Message sent successfully!');
+    }, 700);
   };
+
+  function pushToast(type, title, subtitle = '') {
+    const id = Date.now() + Math.random();
+    setToasts((s) => [...s, { id, type, title, subtitle }]);
+    setTimeout(() => setToasts((s) => s.filter((t) => t.id !== id)), 3000);
+  }
 
   return (
     <section id="contact" className="py-24 relative">
@@ -63,24 +83,39 @@ const Contact = () => {
             </div>
 
             <div>
-              <form onSubmit={handleSubmit} className="glass p-6 rounded-xl border border-transparent space-y-4">
-                {status.success && <div className="text-sm text-neon-green bg-[#04241f] p-3 rounded">{status.success}</div>}
-                {status.error && <div className="text-sm text-neon-red bg-[#3a0b0b] p-3 rounded">{status.error}</div>}
+              <form ref={formRef} onSubmit={handleSubmit} className="glass p-6 rounded-xl border border-transparent space-y-4">
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input name="name" value={form.name} onChange={handleChange} required placeholder="Your name" className="bg-[#0b0b0b] border border-gray-800 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 rounded px-4 py-3 text-white outline-none transition" />
-                  <input name="email" value={form.email} onChange={handleChange} required type="email" placeholder="Email address" className="bg-[#0b0b0b] border border-gray-800 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 rounded px-4 py-3 text-white outline-none transition" />
+                  <div className="flex flex-col">
+                    <input name="name" value={form.name} onChange={handleChange} placeholder="Your name" className="bg-[#0b0b0b] border border-gray-800 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 rounded px-4 py-3 text-white outline-none transition" />
+                    {errors.name && <div className="text-sm text-neon-red mt-1">{errors.name}</div>}
+                  </div>
+                  <div className="flex flex-col">
+                    <input name="email" value={form.email} onChange={handleChange} type="email" placeholder="Email address" className="bg-[#0b0b0b] border border-gray-800 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 rounded px-4 py-3 text-white outline-none transition" />
+                    {errors.email && <div className="text-sm text-neon-red mt-1">{errors.email}</div>}
+                  </div>
                 </div>
 
-                <textarea name="message" value={form.message} onChange={handleChange} required placeholder="Your message" rows={6} className="w-full bg-[#0b0b0b] border border-gray-800 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 rounded px-4 py-3 text-white outline-none transition resize-vertical" />
+                <div className="flex flex-col">
+                  <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your message" rows={6} className="w-full bg-[#0b0b0b] border border-gray-800 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 rounded px-4 py-3 text-white outline-none transition resize-vertical" />
+                  {errors.message && <div className="text-sm text-neon-red mt-1">{errors.message}</div>}
+                </div>
 
                 <div className="flex items-center justify-end">
-                  <button type="submit" disabled={status.submitting} className="inline-flex items-center gap-2 px-6 py-3 bg-neon-blue text-black font-semibold rounded hover:scale-[1.02] transition-all duration-200 shadow-[0_8px_30px_rgba(6,182,212,0.08)]">
-                    <FiSend />
+                  <button type="submit" disabled={status.submitting} className="inline-flex items-center gap-3 px-6 py-3 bg-neon-blue text-black font-semibold rounded hover:scale-[1.02] transition-all duration-200 shadow-[0_8px_30px_rgba(6,182,212,0.08)]">
+                    {status.submitting ? (
+                      <svg className="w-4 h-4 text-black animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                      </svg>
+                    ) : (
+                      <FiSend />
+                    )}
                     <span>{status.submitting ? 'Sending...' : 'Send Message'}</span>
                   </button>
                 </div>
               </form>
+              <Toasts toasts={toasts} />
             </div>
           </div>
         </motion.div>

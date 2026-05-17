@@ -67,7 +67,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="mailto:gyaneshchand57@gmail.com"
                 className="px-4 py-2 border border-neon-green text-neon-green rounded hover:bg-neon-green/10 transition-colors text-sm font-mono"
               >
                 Hire Me
