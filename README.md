@@ -13,8 +13,7 @@ Key focus: professional, responsive, performance-optimized presentation of secur
 ---
 
 ## ✨ Live Demo
-- Local: run the site locally (see instructions below)
-- Deployed: Add your deployment URL here if hosted (Vercel / Netlify / Cloudflare Pages recommended)
+- Deployed: https://gyaneshchand.netlify.app/
 
 ---
 
@@ -52,11 +51,8 @@ src/
  ├── App.jsx         # App entry
  ├── main.jsx        # React + Vite entry
  └── index.css       # Tailwind + global styles
-
 public/
  └── Gyanesh_Chand_Resume.pdf
-
-node_modules/
 package.json
 pnpm-lock.yaml
 README.md
@@ -72,8 +68,6 @@ Clone the repo and install dependencies:
 git clone https://github.com/gyanesh-chand/your-portfolio-repo.git
 cd your-portfolio-repo
 pnpm install
-# or
-npm install
 ```
 
 ## ▶️ Run Locally
@@ -82,40 +76,19 @@ Start the development server (hot reloading):
 
 ```bash
 pnpm dev
-# or
-npm run dev
 ```
 
 Build for production:
 
 ```bash
 pnpm build
-# or
-npm run build
 ```
 
 Preview production build locally:
 
 ```bash
 pnpm preview
-# or
-npm run preview
 ```
-
----
-
-## 📦 Deployment
-
-Recommended hosts: **Vercel**, **Netlify**, or **Cloudflare Pages**. Basic steps:
-
-1. Push your branch to GitHub.
-2. Connect the repository in your hosting provider.
-3. Use the default build command: `pnpm build` or `npm run build` and output directory `dist`.
-4. Deploy.
-
-Pro tip: enable automatic deployments from the main branch and set environment variables if needed.
-
----
 
 ## 🧾 Projects
 
