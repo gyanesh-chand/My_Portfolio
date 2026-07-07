@@ -8,7 +8,7 @@ const ProjectCard = ({ title, description, tech, type, delay, github, placeholde
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay }}
-    className={`glass p-6 rounded-xl flex flex-col h-full group hover:-translate-y-2 transition-all duration-300 border border-gray-800 hover:border-neon-blue ${wide ? 'lg:col-span-2' : ''}`}
+    className={`glass p-6 rounded-xl flex flex-col h-full group hover:-translate-y-2 transition-all duration-300 border border-gray-800 hover:border-neon-blue ${wide ? 'md:col-span-2 lg:col-span-2' : ''}`}
   >
     <div className="flex justify-between items-center mb-6">
       <FiFolder className="text-4xl text-neon-blue group-hover:text-neon-green transition-colors" />
@@ -57,10 +57,17 @@ const Projects = () => {
     {
       title: "CampusDesk Complaint Suite",
       type: "Full-Stack Web Application",
-      description: "AI-powered complaint management system for educational institutions that prioritizes complaints based on severity. Features AI-based complaint prioritization, student complaint management, and security/threat prioritization.",
-      tech: ["React", "Node.js", "MongoDB", "Express", "AI"],
-      github: "https://github.com/gyanesh-chand/AI_Based_College_Complaint_Management_System",
+      description: "CampusDesk is a secure full-stack complaint management system built using React, FastAPI, and MongoDB. It features JWT Authentication, Role-Based Access Control (RBAC), secure media uploads, automated complaint priority detection, complaint tracking, and an administrative dashboard for efficient complaint management.",
+      tech: ["React", "FastAPI", "MongoDB", "JWT", "RBAC", "Tailwind CSS"],
+      github: "https://github.com/gyanesh-chand/Secure-College-Complaint-Management-System",
       wide: true
+    },
+    {
+      title: "Security Monitoring & DNS Traffic Analysis using Splunk SIEM",
+      type: "Cybersecurity Project",
+      description: "Developed a security monitoring project using Splunk Enterprise to analyze Zeek DNS logs with SPL queries and dashboards. Performed DNS traffic analysis, identified suspicious activities, investigated security events, and documented findings to strengthen security monitoring and basic incident investigation.",
+      tech: ["Splunk Enterprise", "SPL", "Zeek", "DNS", "Log Analysis", "Security Monitoring"],
+      github: "https://github.com/gyanesh-chand/splunk-dns-log-analysis"
     },
     {
       title: "More Projects Coming Soon...",

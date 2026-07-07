@@ -101,8 +101,8 @@ const Contact = () => {
                   {errors.message && <div className="text-sm text-neon-red mt-1">{errors.message}</div>}
                 </div>
 
-                <div className="flex items-center justify-end">
-                  <button type="submit" disabled={status.submitting} className="inline-flex items-center gap-3 px-6 py-3 bg-neon-blue text-black font-semibold rounded hover:scale-[1.02] transition-all duration-200 shadow-[0_8px_30px_rgba(6,182,212,0.08)]">
+                 <div className="flex items-center justify-end w-full">
+                  <button type="submit" disabled={status.submitting} className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-neon-blue text-black font-semibold rounded hover:scale-[1.02] transition-all duration-200 shadow-[0_8px_30px_rgba(6,182,212,0.08)] w-full sm:w-auto">
                     {status.submitting ? (
                       <svg className="w-4 h-4 text-black animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

@@ -8,7 +8,7 @@ const navLinks = [
   { title: 'Skills', href: '#skills' },
   { title: 'Experience', href: '#experience' },
   { title: 'Projects', href: '#projects' },
-  { title: 'Achievements', href: '#achievements' },
+  { title: 'Certifications', href: '#certifications' },
   { title: 'Contact', href: '#contact' },
 ];
 
@@ -33,6 +33,17 @@ const Navbar = () => {
       window.removeEventListener('resize', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -102,6 +113,13 @@ const Navbar = () => {
                   {link.title}
                 </a>
               ))}
+              <a
+                href="mailto:gyaneshchand57@gmail.com"
+                onClick={() => setIsOpen(false)}
+                className="px-6 py-2 border border-neon-green text-neon-green rounded hover:bg-neon-green/10 transition-colors text-base font-mono mt-2"
+              >
+                Hire Me
+              </a>
             </motion.div>
           )}
         </AnimatePresence>

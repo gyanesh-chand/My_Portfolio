@@ -2,13 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiTerminal, FiTool, FiCode } from 'react-icons/fi';
 
-const SkillCategory = ({ title, icon, skills, delay }) => (
+const SkillCategory = ({ title, icon, skills, delay, className = '' }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay }}
-    className="glass p-6 rounded-xl hover:-translate-y-2 transition-transform duration-300"
+    className={`glass p-6 rounded-xl hover:-translate-y-2 transition-transform duration-300 ${className}`}
   >
     <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-700">
       <div className="p-3 bg-neon-blue/10 rounded-lg text-neon-blue text-xl">
@@ -35,25 +35,42 @@ const Skills = () => {
       title: "Cybersecurity",
       icon: <FiTerminal />,
       skills: [
-        "Web App Pentesting", "VAPT", "API Security Testing", 
-        "Bug Hunting", "OWASP Top 10", "Reconnaissance", 
-        "Privilege Escalation", "Scanning & Enumeration"
+        "Web Application Penetration Testing",
+        "API Security Testing",
+        "Vulnerability Assessment (VAPT)",
+        "OWASP Top 10",
+        "Reconnaissance",
+        "Scanning & Enumeration",
+        "Security Monitoring",
+        "Network Security"
       ]
     },
     {
       title: "Tools",
       icon: <FiTool />,
       skills: [
-        "Burp Suite", "Nmap", "Nessus", "Wireshark", 
-        "Metasploit", "TryHackMe", "Git", "GitHub"
+        "Burp Suite",
+        "Nmap",
+        "Nessus",
+        "Wireshark",
+        "Metasploit Framework",
+        "Splunk SIEM",
+        "Git",
+        "GitHub"
       ]
     },
     {
-      title: "Technical Stack",
+      title: "Security Foundations",
       icon: <FiCode />,
       skills: [
-        "Python", "JavaScript", "React", "Node.js", 
-        "MongoDB", "Express.js", "SQL", "HTML/CSS"
+        "Linux",
+        "Windows",
+        "TCP/IP",
+        "HTTP/HTTPS",
+        "DNS",
+        "SSL/TLS",
+        "Firewall Fundamentals",
+        "Network Traffic Analysis"
       ]
     }
   ];
@@ -72,7 +89,7 @@ const Skills = () => {
             <div className="h-[1px] bg-gray-700 flex-grow max-w-xs"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((cat, index) => (
               <SkillCategory 
                 key={index} 
@@ -80,6 +97,7 @@ const Skills = () => {
                 icon={cat.icon} 
                 skills={cat.skills} 
                 delay={index * 0.2} 
+                className={index === 2 ? "sm:col-span-2 lg:col-span-1" : ""}
               />
             ))}
           </div>

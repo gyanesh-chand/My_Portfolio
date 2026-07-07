@@ -28,7 +28,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-bold text-white mb-4 tracking-tight drop-shadow-lg leading-tight whitespace-nowrap"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-bold text-white mb-4 tracking-tight drop-shadow-lg leading-tight sm:whitespace-nowrap"
                 style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)' }}
               >
                 Gyanesh Chand.
@@ -38,11 +38,10 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-5xl font-bold text-gray-400 mb-6 flex items-center"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-5xl font-bold text-gray-400 mb-6 flex flex-col sm:flex-row sm:items-center items-start gap-1 sm:gap-0"
               >
                 <span className="whitespace-nowrap mr-3">I am a</span>
-                <span className="text-neon-blue drop-shadow-[0_0_10px_rgba(6,182,212,0.8)] whitespace-nowrap overflow-visible inline-block"
-                      style={{ minWidth: '26ch' }}>
+                <span className="text-neon-blue drop-shadow-[0_0_10px_rgba(6,182,212,0.8)] whitespace-nowrap overflow-visible inline-block min-w-[20ch] sm:min-w-[26ch]">
                   <Typewriter
                     words={['Web App Pentester', 'VAPT Intern', 'Cybersecurity Researcher', 'Bug Hunter']}
                     loop={true}
@@ -61,20 +60,19 @@ const Hero = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-gray-400 text-base md:text-lg lg:text-xl mb-10 max-w-3xl leading-relaxed"
               >
-                I'm a BTech CSE student and a passionate cybersecurity enthusiast from Odisha, India. 
-                I specialize in identifying vulnerabilities, thinking like an attacker, and securing digital architectures.
+                Cybersecurity enthusiast with hands-on experience in Web & API Penetration Testing, Vulnerability Assessment (VAPT), and Security Monitoring. Passionate about identifying vulnerabilities, thinking like an attacker, and building secure applications through offensive and defensive security practices.
               </motion.p>
 
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex flex-wrap gap-4"
+                className="flex flex-col sm:flex-row gap-4 w-full max-w-md sm:max-w-none"
               >
-                <a href="#projects" className="px-6 py-3 bg-transparent border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-black font-semibold rounded transition-all duration-300 flex items-center gap-2 shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:shadow-[0_0_20px_rgba(6,182,212,0.6)]">
+                <a href="#projects" className="px-6 py-3 bg-transparent border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-black font-semibold rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:shadow-[0_0_20px_rgba(6,182,212,0.6)] w-full sm:w-auto">
                   <FiTerminal /> View Projects
                 </a>
-                <a href="/Gyanesh_Chand_Resume.pdf" download className="px-6 py-3 bg-neon-green/10 border border-neon-green text-neon-green hover:bg-neon-green hover:text-black font-semibold rounded transition-all duration-300 flex items-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:shadow-[0_0_20px_rgba(16,185,129,0.6)]">
+                <a href="/Gyanesh_Chand_Resume.pdf" download className="px-6 py-3 bg-neon-green/10 border border-neon-green text-neon-green hover:bg-neon-green hover:text-black font-semibold rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:shadow-[0_0_20px_rgba(16,185,129,0.6)] w-full sm:w-auto">
                   <FiDownload /> Download Resume
                 </a>
               </motion.div>
@@ -126,7 +124,7 @@ const Hero = () => {
             </div>
 
             {/* The Static Subject Image */}
-            <div className="relative w-[360px] md:w-[420px] lg:w-[520px] h-[420px] md:h-[520px] lg:h-[650px] flex justify-center items-center z-20 flex-shrink-0">
+            <div className="relative w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[520px] h-[300px] xs:h-[340px] sm:h-[420px] md:h-[520px] lg:h-[650px] flex justify-center items-center z-20 flex-shrink-0">
               <img
                 src="/profile.png"
                 alt="Gyanesh Chand - Portrait"

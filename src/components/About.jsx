@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { FiTarget } from 'react-icons/fi';
 
 const keywords = {
-  institute: 'Synergy Institute of Engineering and Technology',
   vapt: 'Vulnerability Assessment & Penetration Testing (VAPT)',
   learning: 'continuous learning'
 };
@@ -31,11 +30,11 @@ const About = () => {
               </div>
 
               <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                Hello! I'm Gyanesh Chand, a BTech student in Computer Science and Engineering at <span className="text-neon-blue font-semibold text-glow">{keywords.institute}</span>, Dhenkanal, Odisha.
+                I am a dedicated cybersecurity specialist focusing on <span className="text-neon-blue font-semibold text-glow">Web & API Penetration Testing</span> and <span className="text-neon-blue font-semibold text-glow">VAPT</span> (Vulnerability Assessment & Penetration Testing). With experience executing thorough vulnerability assessments and penetration tests, I am committed to identifying design flaws and code vulnerabilities before they can be exploited.
               </p>
 
               <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                My journey into tech started with a curiosity about how things work on the internet, which quickly evolved into a fascination with how they can be broken—and ultimately, secured. Currently, I'm working as a <span className="text-neon-green font-semibold text-glow">VAPT Intern</span> and exploring bug bounties and web application security.
+                My technical capabilities extend to defensive security operations, including <span className="text-neon-green font-semibold text-glow">Security Monitoring</span> and log analysis using <span className="text-neon-green font-semibold text-glow">Splunk SIEM</span>. By combining offensive security insight with secure application development practices, I analyze system security holistically. Furthermore, I have a proven track record of responsible vulnerability disclosure, helping protect organizations by identifying critical security gaps.
               </p>
 
               <div className="mt-6">
@@ -46,7 +45,7 @@ const About = () => {
                     </div>
                     <div>
                       <div className="text-white font-semibold mb-2">My Passion</div>
-                      <div className="text-gray-300 italic">"My absolute passion is Web Application Penetration Testing. For me, it is not just about finding vulnerabilities, but about thinking like an attacker to solve real-world security problems and help make applications safer."</div>
+                      <div className="text-gray-300 italic">"To secure a system, you must first learn to think like an attacker. True security lies in understanding the paths of compromise and proactively hardening applications from the ground up."</div>
                     </div>
                   </div>
                 </div>
@@ -63,13 +62,14 @@ const About = () => {
                   <div className="text-neon-green font-mono text-sm mb-2">&gt; cat config.json</div>
                   <pre className="bg-transparent text-gray-200 text-sm font-mono p-4 rounded-lg overflow-auto" style={{whiteSpace: 'pre-wrap'}}>
 {`{
-  "role": "VAPT Intern",
+  "role": "Cybersecurity Enthusiast",
   "focus": [
-    "Web App Sec",
+    "Web App Security",
     "API Security",
+    "Security Monitoring",
     "Bug Bounty"
   ],
-  "status": "Learning & Hacking"
+  "status": "Open to Opportunities"
 }`}
                   </pre>
                 </div>

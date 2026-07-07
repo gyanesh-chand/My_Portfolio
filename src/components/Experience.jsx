@@ -11,7 +11,7 @@ const ExperienceItem = ({ role, company, tasks, delay }) => (
   >
     <div className="md:grid md:grid-cols-5 gap-8 items-start relative group">
       {/* Timeline dot */}
-      <div className="absolute left-[-33px] md:left-auto md:right-[-20px] md:col-start-2 md:col-span-1 top-2 w-4 h-4 rounded-full bg-neon-blue border-4 border-[#050505] z-10 group-hover:bg-neon-green transition-colors duration-300"></div>
+      <div className="absolute left-0 md:left-[40%] md:-translate-x-[7px] top-[10px] w-4 h-4 rounded-full bg-neon-blue border-4 border-[#050505] z-10 group-hover:bg-neon-green transition-colors duration-300"></div>
       
       {/* Company & Role */}
       <div className="md:col-span-2 text-left md:text-right mb-4 md:mb-0 md:pr-12 lg:pr-16">
